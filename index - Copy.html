@@ -1,0 +1,665 @@
+<style>
+  html { display: none; }
+</style>
+
+<script>
+  const MY_PASSWORD = "ENCORE2026"; 
+
+  const credential = prompt("🔐 VIP ACCESS ONLY\nEnter the Secret Invite Code to view the Encore Pass:");
+
+  if (credential === MY_PASSWORD) {
+      document.documentElement.style.display = "block";
+  } else {
+      alert("❌ Access Denied.");
+      window.location.reload();
+  }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encore After Party - Digital Entry Pass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202011141605077991-cb5c80547dff11ed874b0a58a9feac02.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.85), rgba(0, 0, 0, 0.9));
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo-section img {
+            max-width: 180px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.8));
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin: 30px 0;
+            animation: neonGlow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            text-align: center;
+            color: #00ffff;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .event-details {
+            background: rgba(20, 0, 40, 0.8);
+            border: 2px solid #ff00ff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.4);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .detail-icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            color: #00ffff;
+        }
+
+        .detail-label {
+            font-weight: 700;
+            color: #ff00ff;
+            margin-right: 15px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .form-section {
+            background: rgba(20, 0, 40, 0.8);
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .form-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 4px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #ff00ff;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+        }
+
+        .activate-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border: none;
+            border-radius: 15px;
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .activate-btn:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.8);
+        }
+
+        .activate-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .rules-section {
+            background: rgba(20, 0, 40, 0.8);
+            border: 2px solid #ff00ff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .rules-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: #ff00ff;
+            margin-bottom: 25px;
+            letter-spacing: 4px;
+        }
+
+        .rule-item {
+            color: #fff;
+            font-size: 1.1rem;
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .rule-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #00ffff;
+            font-size: 1.5rem;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            animation: fadeInUp 1.6s ease-out;
+        }
+
+        .action-btn {
+            padding: 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            border: 2px solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .maps-btn {
+            background: rgba(234, 67, 53, 0.2);
+            border-color: #EA4335;
+            color: #EA4335;
+        }
+
+        .maps-btn:hover {
+            background: rgba(234, 67, 53, 0.4);
+            box-shadow: 0 0 30px rgba(234, 67, 53, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .whatsapp-btn {
+            background: rgba(37, 211, 102, 0.2);
+            border-color: #25D366;
+            color: #25D366;
+        }
+
+        .whatsapp-btn:hover {
+            background: rgba(37, 211, 102, 0.4);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .verified-screen {
+            display: none;
+            background: rgba(20, 0, 40, 0.95);
+            border: 3px solid #00ff00;
+            border-radius: 20px;
+            padding: 60px;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(0, 255, 0, 0.6);
+            animation: fadeInScale 0.5s ease-out;
+        }
+
+        .verified-screen.active {
+            display: block;
+        }
+
+        .verified-icon {
+            font-size: 6rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+        }
+
+        .verified-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+        }
+
+        .verified-text {
+            font-size: 1.3rem;
+            color: #fff;
+            margin: 15px 0;
+        }
+
+        .verified-id {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #00ff00;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff00ff;
+            position: absolute;
+            animation: confettiFall 3s linear;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            }
+            to {
+                text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #00ffff;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                letter-spacing: 4px;
+            }
+
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .event-details, .form-section, .rules-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-section">
+            <img src="	https://bbethical010-glitch.github.io/afterparty2026/cropped-fav.png" alt="Seth M.R. Jaipuria School">
+        </div>
+
+        <h1 class="main-title">ENCORE</h1>
+        <p class="subtitle">After Party - Class of 2025-26</p>
+
+        <div class="event-details">
+            <div class="detail-item">
+                <span class="detail-icon">📅</span>
+                <span class="detail-label">DATE:</span>
+                <span>1st February 2026</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-icon">⏰</span>
+                <span class="detail-label">TIME:</span>
+                <span>5:00 PM Onwards</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-icon">📍</span>
+                <span class="detail-label">VENUE:</span>
+                <span>The Grand Art Floor</span>
+            </div>
+        </div>
+
+        <div class="form-section" id="formSection">
+            <h2 class="form-title">ACTIVATE YOUR PASS</h2>
+            <form id="entryForm">
+                <div class="input-group">
+                    <label for="userId">UNIQUE USER ID</label>
+                    <input type="text" id="userId" name="userId" required placeholder="Enter your ID (e.g., JAI-001)">
+                </div>
+                <div class="input-group">
+                    <label for="fullName">FULL NAME</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                </div>
+                <button type="submit" class="activate-btn" id="submitBtn">ACTIVATE PASS</button>
+            </form>
+        </div>
+
+        <div class="verified-screen" id="verifiedScreen">
+            <div class="verified-icon">✓</div>
+            <h2 class="verified-title">ACCESS GRANTED</h2>
+            <p class="verified-text">Your digital entry pass has been verified</p>
+            <div class="verified-id" id="displayInfo"></div>
+            <p class="verified-text">Screenshot this confirmation for entry</p>
+            <p class="verified-text" style="color: #00ffff; margin-top: 30px;">See you at The Grand Art Floor!</p>
+        </div>
+
+        <div class="rules-section">
+            <h2 class="rules-title">EVENT GUIDELINES</h2>
+            <div class="rule-item">Dress Code: Party Wear (Mandatory)</div>
+            <div class="rule-item">Entry Only Via Valid Digital Pass & User ID</div>
+            <div class="rule-item">Arrive Between 5:00 PM - 6:00 PM for Smooth Check-in</div>
+            <div class="rule-item">Outside Food & Beverages Not Permitted</div>
+            <div class="rule-item">Follow Event Staff Instructions at All Times</div>
+            <div class="rule-item">Photography & Videography Zones Will Be Designated</div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="https://maps.app.goo.gl/Pdtvn7YvNHhg8qbX7" target="_blank" class="action-btn maps-btn">
+                <span>📍</span>
+                <span>VENUE LOCATION</span>
+            </a>
+            <a href="https://wa.me/917007520015" target="_blank" class="action-btn whatsapp-btn">
+                <span>💬</span>
+                <span>CONTACT ORGANIZER</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyPMcvNbwuS1_oVZk94HF84oIbxn_xh2d70b1lINcq26sHIVHJEfV-tJwDP13229YAN/exec";
+
+        // Valid users list from your PDF
+        const VALID_USERS = {
+            "JAI-001": "ARSHITA CHARAG",
+            "JAI-002": "ATHARV SAXENA",
+            "JAI-003": "DIVYANSH RAJ SINGH",
+            "JAI-004": "KAUSHIK SHUKLA",
+            "JAI-005": "RIDDHI GARG",
+            "JAI-006": "SHAURYA MISHRA",
+            "JAI-007": "AAVIAH GRACE PHILLIPS",
+            "JAI-008": "ANUBHAV VERMA",
+            "JAI-009": "GARVIT DWIVEDI",
+            "JAI-010": "MOHD AREEB",
+            "JAI-011": "MOHD. FARAZ",
+            "JAI-012": "PRASHAST VERMA",
+            "JAI-013": "SHERLIN SACHDEVA",
+            "JAI-014": "SHIKSHA VERMA",
+            "JAI-015": "SHIV SHUKLA",
+            "JAI-016": "SHREYA GANGWAR",
+            "JAI-017": "UJJAWAL RAJPUT",
+            "JAI-018": "VIDUSHI YADUVANSHI",
+            "JAI-019": "AAYUSHI AGARWAL",
+            "JAI-020": "ABHAY VIKRAM SINGH",
+            "JAI-021": "AKSHANSH PRATAP SINGH",
+            "JAI-022": "ANGAD SINGH",
+            "JAI-023": "ARSHITA SINGH",
+            "JAI-024": "AYUSH GUPTA",
+            "JAI-025": "NAVYA GUPTA",
+            "JAI-026": "PRATHAM PANDEY",
+            "JAI-027": "RUDRAKSHA GUPTA",
+            "JAI-028": "SHAIKH FARAZ AHMAD",
+            "JAI-029": "SHIVA SINGH",
+            "JAI-030": "SHIVANSH AGARWAL",
+            "JAI-031": "SIDDHI RASTOGI",
+            "JAI-032": "YASH MAURYA",
+            "JAI-033": "HARISH KHAN",
+            "JAI-034": "SHRIYA SHRI RAJPUT",
+            "JAI-035": "VEDANSH AGARWAL",
+            "JAI-036": "VAISHNAVI",
+            "JAI-037": "MEET",
+            "JAI-038": "ANANYA",
+            "JAI-039": "TANMAY"
+        };
+
+        // Store registered users in localStorage
+        async function isUserRegistered(userId) {
+            try {
+                const checkData = new FormData();
+                checkData.append("userId", userId);
+                checkData.append("action", "check");
+                
+                const response = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: checkData
+                });
+                
+                const result = await response.json();
+                return result.isRegistered || false;
+            } catch (error) {
+                console.log("Error checking registration:", error);
+                return false;
+            }
+        }
+
+        function createConfetti() {
+            const colors = ["#ff00ff", "#00ffff", "#ff0080", "#00ff80", "#ffff00"];
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement("div");
+                confetti.className = "confetti";
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDelay = Math.random() * 3 + "s";
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + "px";
+                confetti.style.height = Math.random() * 10 + 5 + "px";
+                document.body.appendChild(confetti);
+
+                setTimeout(function() {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+
+        window.addEventListener("load", createConfetti);
+
+        document.getElementById("entryForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const userId = document.getElementById("userId").value.trim().toUpperCase();
+            const fullName = document.getElementById("fullName").value.trim().toUpperCase();
+            const submitBtn = document.getElementById("submitBtn");
+
+            if (!userId || !fullName) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            // Check if user ID exists in valid users list
+            if (!VALID_USERS[userId]) {
+                alert("❌ Invalid User ID!\n\nThis User ID is not registered for the event.\nPlease check your ID and try again.");
+                document.getElementById("userId").value = "";
+                document.getElementById("userId").focus();
+                return;
+            }
+
+            // Check if name matches the user ID
+            const validName = VALID_USERS[userId];
+            if (fullName !== validName) {
+                alert("❌ Invalid Username!\n\nThe name does not match the User ID.\n\nPlease enter the correct name.");
+                document.getElementById("fullName").value = "";
+                document.getElementById("fullName").focus();
+                return;
+            }
+
+            submitBtn.textContent = "CHECKING...";
+            submitBtn.disabled = true;
+
+            // Check if user already registered in database
+            const alreadyRegistered = await isUserRegistered(userId);
+            
+            if (alreadyRegistered) {
+                alert("✓ Already Registered!\n\nYou have already completed your registration.\nYour pass is ready to use.");
+                
+                // Show verified screen for already registered user
+                document.getElementById("formSection").style.display = "none";
+                document.getElementById("verifiedScreen").classList.add("active");
+                document.getElementById("displayInfo").innerHTML = 
+                    "<strong>ID:</strong> " + userId + "<br><strong>NAME:</strong> " + validName;
+                
+                createConfetti();
+                
+                setTimeout(function() {
+                    document.getElementById("verifiedScreen").scrollIntoView({ behavior: "smooth" });
+                }, 100);
+                return;
+            }
+
+            submitBtn.textContent = "PROCESSING...";
+
+            const formData = new FormData();
+            formData.append("userId", userId);
+            formData.append("fullName", validName);
+            formData.append("action", "register");
+
+            fetch(SCRIPT_URL, {
+                method: "POST",
+                body: formData,
+                mode: "no-cors"
+            })
+            .then(function() {
+                console.log("Form submitted successfully");
+                
+                document.getElementById("formSection").style.display = "none";
+                document.getElementById("verifiedScreen").classList.add("active");
+                document.getElementById("displayInfo").innerHTML = 
+                    "<strong>ID:</strong> " + userId + "<br><strong>NAME:</strong> " + validName;
+
+                createConfetti();
+
+                setTimeout(function() {
+                    document.getElementById("verifiedScreen").scrollIntoView({ behavior: "smooth" });
+                }, 100);
+            })
+            .catch(function(error) {
+                console.error("Error:", error);
+                alert("Submission failed. Please check your internet connection and try again.");
+                submitBtn.textContent = "ACTIVATE PASS";
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
